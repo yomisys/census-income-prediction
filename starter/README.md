@@ -1,5 +1,13 @@
 # Census Income Prediction API
 
+
+[![CI](https://github.com/yomisys/census-income-prediction/actions/workflows-app.yml/badge.svg](https://github.com/yomisys/census-income-prediction/actions)
+
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![FastAPI](https://img.shields.ioeen
+![Renderimg.shields.io/badge/Deployment-Render-success
+![Tests](https://img.shields.io/badge/Tests-Passing-bright
+
 ![Python](https://img.shields.io/badge/Python-3.13s://img.shields.io/badge/FastAPI-Live-green
 ![Renderimg.shields.io/badge/Deployment-Render-success
 ![Scikit-Learn](https://img.shields.io/badge/ML-Scikit--ps://img.shields.io/badge/Tests-Passing-brightgreen
