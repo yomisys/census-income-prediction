@@ -1,3 +1,4 @@
+# flake8: noqa
 import sys
 import os
 import numpy as np
@@ -40,3 +41,4 @@ def test_inference():
     preds = inference(model, X)
 
     assert len(preds) == len(y)
+
