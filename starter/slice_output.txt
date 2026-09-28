@@ -1,0 +1,118 @@
+
+Feature: workclass
+State-gov: Precision=0.941, Recall=0.941, F1=0.941
+Self-emp-not-inc: Precision=0.967, Recall=0.925, F1=0.946
+Private: Precision=0.953, Recall=0.923, F1=0.938
+Federal-gov: Precision=0.948, Recall=0.935, F1=0.942
+Local-gov: Precision=0.955, Recall=0.927, F1=0.941
+?: Precision=0.929, Recall=0.895, F1=0.912
+Self-emp-inc: Precision=0.951, Recall=0.958, F1=0.954
+Without-pay: Precision=0.000, Recall=0.000, F1=0.000
+Never-worked: Precision=0.000, Recall=0.000, F1=0.000
+
+Feature: education
+Bachelors: Precision=0.949, Recall=0.955, F1=0.952
+HS-grad: Precision=0.938, Recall=0.881, F1=0.909
+11th: Precision=1.000, Recall=0.867, F1=0.929
+Masters: Precision=0.970, Recall=0.968, F1=0.969
+9th: Precision=1.000, Recall=0.778, F1=0.875
+Some-college: Precision=0.944, Recall=0.903, F1=0.923
+Assoc-acdm: Precision=0.968, Recall=0.917, F1=0.942
+Assoc-voc: Precision=0.967, Recall=0.898, F1=0.931
+7th-8th: Precision=1.000, Recall=0.875, F1=0.933
+Doctorate: Precision=0.974, Recall=0.980, F1=0.977
+Prof-school: Precision=0.959, Recall=0.988, F1=0.973
+5th-6th: Precision=1.000, Recall=1.000, F1=1.000
+10th: Precision=1.000, Recall=0.774, F1=0.873
+1st-4th: Precision=1.000, Recall=0.833, F1=0.909
+Preschool: Precision=0.000, Recall=0.000, F1=0.000
+12th: Precision=0.938, Recall=0.909, F1=0.923
+
+Feature: marital-status
+Never-married: Precision=0.980, Recall=0.898, F1=0.937
+Married-civ-spouse: Precision=0.949, Recall=0.936, F1=0.942
+Divorced: Precision=0.966, Recall=0.853, F1=0.906
+Married-spouse-absent: Precision=1.000, Recall=0.912, F1=0.954
+Separated: Precision=1.000, Recall=0.848, F1=0.918
+Married-AF-spouse: Precision=1.000, Recall=0.700, F1=0.824
+Widowed: Precision=1.000, Recall=0.929, F1=0.963
+
+Feature: occupation
+Adm-clerical: Precision=0.931, Recall=0.876, F1=0.902
+Exec-managerial: Precision=0.963, Recall=0.952, F1=0.957
+Handlers-cleaners: Precision=0.940, Recall=0.919, F1=0.929
+Prof-specialty: Precision=0.956, Recall=0.964, F1=0.960
+Other-service: Precision=0.983, Recall=0.854, F1=0.914
+Sales: Precision=0.950, Recall=0.924, F1=0.937
+Craft-repair: Precision=0.935, Recall=0.895, F1=0.914
+Transport-moving: Precision=0.943, Recall=0.878, F1=0.909
+Farming-fishing: Precision=0.981, Recall=0.896, F1=0.936
+Machine-op-inspct: Precision=0.973, Recall=0.864, F1=0.915
+Tech-support: Precision=0.949, Recall=0.922, F1=0.935
+?: Precision=0.929, Recall=0.895, F1=0.912
+Protective-serv: Precision=0.960, Recall=0.910, F1=0.934
+Armed-Forces: Precision=1.000, Recall=1.000, F1=1.000
+Priv-house-serv: Precision=1.000, Recall=1.000, F1=1.000
+
+Feature: relationship
+Not-in-family: Precision=0.974, Recall=0.886, F1=0.928
+Husband: Precision=0.949, Recall=0.936, F1=0.942
+Wife: Precision=0.950, Recall=0.940, F1=0.945
+Own-child: Precision=0.948, Recall=0.821, F1=0.880
+Unmarried: Precision=0.995, Recall=0.872, F1=0.929
+Other-relative: Precision=1.000, Recall=0.838, F1=0.912
+
+Feature: race
+White: Precision=0.952, Recall=0.929, F1=0.941
+Black: Precision=0.964, Recall=0.899, F1=0.930
+Asian-Pac-Islander: Precision=0.941, Recall=0.924, F1=0.932
+Amer-Indian-Eskimo: Precision=0.939, Recall=0.861, F1=0.899
+Other: Precision=1.000, Recall=0.960, F1=0.980
+
+Feature: sex
+Male: Precision=0.951, Recall=0.929, F1=0.940
+Female: Precision=0.960, Recall=0.919, F1=0.939
+
+Feature: native-country
+United-States: Precision=0.953, Recall=0.927, F1=0.940
+Cuba: Precision=1.000, Recall=0.960, F1=0.980
+Jamaica: Precision=0.909, Recall=1.000, F1=0.952
+India: Precision=0.930, Recall=1.000, F1=0.964
+?: Precision=0.933, Recall=0.959, F1=0.946
+Mexico: Precision=0.969, Recall=0.939, F1=0.954
+South: Precision=1.000, Recall=0.625, F1=0.769
+Puerto-Rico: Precision=0.846, Recall=0.917, F1=0.880
+Honduras: Precision=1.000, Recall=1.000, F1=1.000
+England: Precision=0.963, Recall=0.867, F1=0.912
+Canada: Precision=0.946, Recall=0.897, F1=0.921
+Germany: Precision=0.953, Recall=0.932, F1=0.943
+Iran: Precision=0.842, Recall=0.889, F1=0.865
+Philippines: Precision=0.934, Recall=0.934, F1=0.934
+Italy: Precision=1.000, Recall=0.880, F1=0.936
+Poland: Precision=0.857, Recall=1.000, F1=0.923
+Columbia: Precision=1.000, Recall=1.000, F1=1.000
+Cambodia: Precision=0.875, Recall=1.000, F1=0.933
+Thailand: Precision=1.000, Recall=1.000, F1=1.000
+Ecuador: Precision=1.000, Recall=1.000, F1=1.000
+Laos: Precision=1.000, Recall=1.000, F1=1.000
+Taiwan: Precision=1.000, Recall=1.000, F1=1.000
+Haiti: Precision=1.000, Recall=1.000, F1=1.000
+Portugal: Precision=1.000, Recall=0.750, F1=0.857
+Dominican-Republic: Precision=1.000, Recall=1.000, F1=1.000
+El-Salvador: Precision=1.000, Recall=1.000, F1=1.000
+France: Precision=0.923, Recall=1.000, F1=0.960
+Guatemala: Precision=1.000, Recall=0.667, F1=0.800
+China: Precision=0.950, Recall=0.950, F1=0.950
+Japan: Precision=0.955, Recall=0.875, F1=0.913
+Yugoslavia: Precision=1.000, Recall=0.833, F1=0.909
+Peru: Precision=1.000, Recall=1.000, F1=1.000
+Outlying-US(Guam-USVI-etc): Precision=0.000, Recall=0.000, F1=0.000
+Scotland: Precision=1.000, Recall=1.000, F1=1.000
+Trinadad&Tobago: Precision=1.000, Recall=1.000, F1=1.000
+Greece: Precision=1.000, Recall=1.000, F1=1.000
+Nicaragua: Precision=1.000, Recall=0.500, F1=0.667
+Vietnam: Precision=1.000, Recall=0.800, F1=0.889
+Hong: Precision=1.000, Recall=1.000, F1=1.000
+Ireland: Precision=1.000, Recall=1.000, F1=1.000
+Hungary: Precision=1.000, Recall=1.000, F1=1.000
+Holand-Netherlands: Precision=0.000, Recall=0.000, F1=0.000
