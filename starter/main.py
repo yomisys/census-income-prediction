@@ -8,7 +8,13 @@ from pydantic import BaseModel, Field
 from starter.ml.data import process_data
 from starter.ml.model import inference
 
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi import Request
+
 app = FastAPI()
+
+templates = Jinja2Templates(directory="templates")
 
 
 MODEL_PATH = os.path.join("model", "model.pkl")
@@ -82,11 +88,12 @@ class CensusData(BaseModel):
         populate_by_name = True
 
 
-@app.get("/")
-def welcome():
-    return {
-        "message": "Welcome to Census Income Prediction API"
-    }
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
+    return templates.TemplateResponse(
+        "index.html",
+        {"request": request}
+    )
 
 
 @app.post("/predict")

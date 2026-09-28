@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Census Income Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px auto;
+            max-width: 700px;
+        }
+
+        h1 {
+            color: #0066cc;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Census Income Prediction API</h1>
+
+<p>
+Predict whether income is greater than $50K using the trained machine learning model.
+</p>
+
+<button onclick="predictIncome()">
+Run Sample Prediction
+</button>
+
+<div id="result"></div>
+
+<script>
+async function predictIncome() {
+
+    const response = await fetch('/predict', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            age: 39,
+            workclass: 'State-gov',
+            fnlgt: 77516,
+            education: 'Bachelors',
+            'education-num': 13,
+            'marital-status': 'Never-married',
+            occupation: 'Adm-clerical',
+            relationship: 'Not-in-family',
+            race: 'White',
+            sex: 'Male',
+            'capital-gain': 2174,
+            'capital-loss': 0,
+            'hours-per-week': 40,
+            'native-country': 'United-States'
+        })
+    });
+
+    const data = await response.json();
+
+    document.getElementById('result').innerHTML =
+        'Prediction: ' + data.prediction;
+}
+</script>
+
+</body>
+</html>
