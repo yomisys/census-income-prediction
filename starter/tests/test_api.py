@@ -12,11 +12,12 @@ client = TestClient(app)
 
 
 def test_get_root():
-    """Test that the root endpoint returns the HTML landing page."""
     response = client.get("/")
 
     assert response.status_code == 200
-    assert "Census Income Predictor" in response.text
+    assert response.json() == {
+        "message": "Welcome to Census Income Prediction API"
+    }
 
 
 def test_post_prediction_lte_50k():
@@ -67,4 +68,3 @@ def test_post_prediction_gt_50k():
 
     assert response.status_code == 200
     assert response.json()["prediction"] == ">50K"
-    

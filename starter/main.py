@@ -3,19 +3,12 @@ import pickle
 
 import pandas as pd
 from fastapi import FastAPI
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 from starter.ml.data import process_data
 from starter.ml.model import inference
 
-from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
-from fastapi import Request
-
 app = FastAPI()
-
-templates = Jinja2Templates(directory="templates")
-
 
 MODEL_PATH = os.path.join("model", "model.pkl")
 ENCODER_PATH = os.path.join("model", "encoder.pkl")
@@ -30,7 +23,6 @@ with open(ENCODER_PATH, "rb") as f:
 with open(LB_PATH, "rb") as f:
     lb = pickle.load(f)
 
-
 cat_features = [
     "workclass",
     "education",
@@ -44,19 +36,21 @@ cat_features = [
 
 
 class CensusData(BaseModel):
+    model_config = ConfigDict(populate_by_name=True)
+
     age: int = 39
     workclass: str = "State-gov"
     fnlgt: int = 77516
     education: str = "Bachelors"
 
     education_num: int = Field(
-        alias="education-num",
-        default=13
+        default=13,
+        alias="education-num"
     )
 
     marital_status: str = Field(
-        alias="marital-status",
-        default="Never-married"
+        default="Never-married",
+        alias="marital-status"
     )
 
     occupation: str = "Adm-clerical"
@@ -65,40 +59,35 @@ class CensusData(BaseModel):
     sex: str = "Male"
 
     capital_gain: int = Field(
-        alias="capital-gain",
-        default=2174
+        default=2174,
+        alias="capital-gain"
     )
 
     capital_loss: int = Field(
-        alias="capital-loss",
-        default=0
+        default=0,
+        alias="capital-loss"
     )
 
     hours_per_week: int = Field(
-        alias="hours-per-week",
-        default=40
+        default=40,
+        alias="hours-per-week"
     )
 
     native_country: str = Field(
-        alias="native-country",
-        default="United-States"
+        default="United-States",
+        alias="native-country"
     )
 
-    class Config:
-        populate_by_name = True
 
-
-@app.get("/", response_class=HTMLResponse)
-def home(request: Request):
-    return templates.TemplateResponse(
-        "index.html",
-        {"request": request}
-    )
+@app.get("/")
+def welcome():
+    return {
+        "message": "Welcome to Census Income Prediction API"
+    }
 
 
 @app.post("/predict")
 def predict(data: CensusData):
-
     input_data = pd.DataFrame(
         [{
             "age": data.age,
@@ -114,7 +103,7 @@ def predict(data: CensusData):
             "capital-gain": data.capital_gain,
             "capital-loss": data.capital_loss,
             "hours-per-week": data.hours_per_week,
-            "native-country": data.native_country,
+            "native-country": data.native_country
         }]
     )
 
@@ -123,14 +112,13 @@ def predict(data: CensusData):
         categorical_features=cat_features,
         training=False,
         encoder=encoder,
-        lb=lb,
+        lb=lb
     )
 
     prediction = inference(model, X)[0]
 
-    if prediction == 1:
-        result = ">50K"
-    else:
-        result = "<=50K"
+    result = ">50K" if prediction == 1 else "<=50K"
 
-    return {"prediction": result}
+    return {
+        "prediction": result
+    }
